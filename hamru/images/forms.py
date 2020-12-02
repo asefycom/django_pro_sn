@@ -33,7 +33,7 @@ class ImageCreateForm(forms.ModelForm):
         #Download image
         response = request.urlopen(image_url)
         image.image.save(image_name, ContentFile(response.read()),
-                         commit=False)
+                         save=False)
         if commit:
             image.save()
         return image
