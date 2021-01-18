@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['mysite.com', '127.0.0.1', 'localhost']
 INSTALLED_APPS = [
     'social_django',
     'django_extensions',
+    'easy_thumbnails',
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
     'django.contrib.admin',
