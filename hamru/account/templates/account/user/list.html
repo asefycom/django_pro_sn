@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}People{% endblock %}
+
+{% block content %}
+  <h1>People</h1>
+  <div id="people-list">
+      {% for user in users %}
+        <div class="user">
+            <img src="{% thumbnail user.profile.photo 180x180 %}">
+            <div class="info">
+                {{ user.get_full_name }}
+            </div>
+        </div>
+      {% endfor %}
+  </div>
+{% endblock %}
