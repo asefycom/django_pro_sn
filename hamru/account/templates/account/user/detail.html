@@ -2,9 +2,7 @@
 {% load thumbnail %}
 
 {% block title %}{{ user.get_full_name }}{% endblock %}
-
 {% block content %}
-
   <h1>{{ user.get_full_name }}</h1>
   <div class="profile-info">
     <img src="{% thumbnail user.profile.photo 180x180 %}" class="user-detail">
@@ -25,5 +23,5 @@
       {% include "images/image/list_ajax.html" with images=user.images_created.all %}
     </div>
   {% endwith %}
-
 {% endblock %}
+
