@@ -10,7 +10,9 @@
         <div class="user">
             <img src="{% thumbnail user.profile.photo 180x180 %}">
             <div class="info">
-                {{ user.get_full_name }}
+                <a href="{{ user.get_absolute_url }}" class="title">
+                    {{ user.get_full_name }}
+                </a>
             </div>
         </div>
       {% endfor %}
