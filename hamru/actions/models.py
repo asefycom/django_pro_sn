@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 
+
 class Action(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              related_name='actions',
