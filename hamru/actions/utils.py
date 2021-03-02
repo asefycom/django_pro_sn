@@ -1,6 +1,6 @@
-import datetime
 from .models import Action
-from django.utils.timezone import timezone
+import datetime
+from django.utils import timezone
 from django.contrib.contenttypes.models import ContentType
 
 
@@ -14,7 +14,6 @@ def create_action(user, verb, target=None):
         target_ct = ContentType.objects.get_for_model(target)
         similar_actions = similar_actions.filter(target_ct=target_ct,
                                                  target_id=target.id)
-
     if not similar_actions:
         action = Action(user=user, verb=verb, target=target)
         action.save()
