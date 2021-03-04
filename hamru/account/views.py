@@ -44,9 +44,11 @@ def dashboard(request):
     if following_ids:
         actions = actions.filter(user_id__in=following_ids)
 
-    actions = actions.select_related('user', 'user__profile')[:10]
+    actions = actions.select_related('user', 'user__profile')\
+        .prefetch_related('target')[:10]
+
     return render(request, 'account/dashboard.html',
-                  {'section': 'dashboard', 'actions': actions})
+                  {'section': 'dashboard', 'actions':actions})
 
 
 def register(request):
