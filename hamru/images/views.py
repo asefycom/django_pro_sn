@@ -58,8 +58,10 @@ def image_like(request):
 
 @login_required
 def image_list(request):
-    images = Image.objects.all()
+    # images = Image.objects.all()
     # Denormalization Example
+    images = Image.objects.order_by('-total_likes')
+    # Normal DB but hard query
     # from django.db.models import Count
     # images = Image.objects.annotate(
     #     total_likes=Count('users_like')).order_by('-total_likes')
