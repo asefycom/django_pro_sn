@@ -59,6 +59,10 @@ def image_like(request):
 @login_required
 def image_list(request):
     images = Image.objects.all()
+    # Denormalization Example
+    # from django.db.models import Count
+    # images = Image.objects.annotate(
+    #     total_likes=Count('users_like')).order_by('-total_likes')
     paginator = Paginator(images, 8)
     page = request.GET.get("page")
     try:
